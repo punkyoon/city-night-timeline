@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from service.views import main_view
+
 urlpatterns = [
+    url(r'^$', main_view, name='main'),
     url(r'^admin/', admin.site.urls),
 ]
