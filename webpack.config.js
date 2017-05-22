@@ -5,10 +5,10 @@ var BundleTracker = require('webpack-bundle-tracker')
 module.exports = {
   context: __dirname,
 
-  entry: './assets/js/index', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
+  entry: './static/js/index', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
 
   output: {
-      path: path.resolve('./assets/bundles/'),
+      path: path.resolve('./static/bundles/'),
       filename: "[name]-[hash].js",
   },
 
@@ -18,7 +18,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets:['react']}}, // to transform JSX into JS
     ],
   },
 
