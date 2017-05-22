@@ -20,5 +20,17 @@
   "bugs": {
     "url": "https://github.com/punkyoon/city-night-timeline/issues"
   },
-  "homepage": "https://github.com/punkyoon/city-night-timeline"
+  "homepage": "https://github.com/punkyoon/city-night-timeline",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "semantic-ui-react": "^0.68.3",
+    "webpack": "^2.5.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "devDependencies": {}
 }
