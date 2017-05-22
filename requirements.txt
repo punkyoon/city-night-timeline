@@ -1,3 +1,4 @@
 Django
-django_compressor
+#django_compressor
 PyReact
+django-webpack-loader
