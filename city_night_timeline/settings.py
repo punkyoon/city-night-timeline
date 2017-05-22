@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'compressor',
     'webpack_loader',
     'service',
 ]
@@ -122,10 +121,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    #os.path.join(BASE_DIR, 'assets'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 WEBPACK_LOADER = {
     'DEFAULT': {
@@ -133,16 +129,3 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
 }
-
-'''
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
-
-COMPRESS_ROOT = os.path.join(BASE_DIR, 'static')
-COMPRESS_PRECOMPILERS = (
-    ('text/jsx', 'third_party.react_compressor.ReactFilter'),
-)
-'''

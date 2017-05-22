@@ -18,11 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from service.views import main_view
-from . import settings
 
 urlpatterns = [
     url(r'^$', main_view, name='main'),
     url(r'^admin/', admin.site.urls),
 ]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
