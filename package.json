@@ -1,0 +1,24 @@
+{
+  "name": "city_night_timeline",
+  "version": "1.0.0",
+  "description": "CITY NIGHT TIMELINE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punkyoon/city-night-timeline.git"
+  },
+  "keywords": [
+    "django",
+    "react",
+    "timeline"
+  ],
+  "author": "punkyoon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/punkyoon/city-night-timeline/issues"
+  },
+  "homepage": "https://github.com/punkyoon/city-night-timeline"
+}

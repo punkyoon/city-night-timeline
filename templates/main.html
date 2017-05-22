@@ -9,5 +9,14 @@
   </head>
   <body>
     <h1>Test</h1>
+    <form class="form-horizontal" method="post" action="{% url 'main' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p class="input-group">
+        {{ msg_form.keyword }}
+        <span class="input-group-btn">
+          <button class="btn btn-default" id="newmsg" type="submit">WRITE</button>
+        </span>
+      </p>
+    </form>
   </body>
 </html>
