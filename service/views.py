@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from service.models import Timeline
-from service.forms import MessageForm
+from service.forms import MessageForm, SearchForm
 
 # view and uploa
 def main_view(request):
