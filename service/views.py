@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 from service.models import Timeline
@@ -11,10 +13,15 @@ def main_view(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             msg = form.cleaned_data['message']
-            print(msg)  # just for test
             content = Timeline.objects.create(message=msg)
+    
+    result = Timeline.objects.filter(time__contains=datetime.date.today())
+    context = {
+        'msg_form': form,
+        'result': result
+    }
 
-    return render(request, 'main.html', {'msg_form': form})
+    return render(request, 'main.html', context)
 
 def search_view(request):
     form = SearchForm()

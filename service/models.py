@@ -6,5 +6,8 @@ class Timeline(models.Model):
     message = models.TextField()
     time = models.DateField(auto_now_add=True)
 
+    class Meta:
+        ordering = ('time')
+
     def __str__(self):
         return str(self._id)
