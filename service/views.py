@@ -26,6 +26,6 @@ def search_view(request):
 
     return render(request, 'search.html', {'search_form': form})
 
-def load_view(request, param):
+def list_view(request, param):
     print(param)
     return render(request, 'list.html', {})
