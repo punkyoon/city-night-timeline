@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="input-group">
+      {{ msg_form.message }}
+      <span class="input-group-btn">
+        <button class="btn" id="post" type="submit">POST</button>
+      </span>
+    </p>
+  </form>
+{% endblock %}
