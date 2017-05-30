@@ -10,9 +10,10 @@ def main_view(request):
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
-            msg = form.cleaned_data
+            msg = form.cleaned_data['message']
             print(msg)  # just for test
-    #content = Timeline.objects.create(message=request)
+            content = Timeline.objects.create(message=msg)
+
     return render(request, 'main.html', {'msg_form': form})
 
 def search_view(request):
@@ -21,11 +22,11 @@ def search_view(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            query = form.cleaned_data
-            print(query)    # just for test
+            query = form.cleaned_data['date']
+            result = Timeline.objects.filter(time__contains=query)
+            return render(request, 'list.html', {'result': result})
 
     return render(request, 'search.html', {'search_form': form})
 
-def list_view(request, param):
-    print(param)
+def list_view(request):
     return render(request, 'list.html', {})
