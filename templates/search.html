@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
-{% block contetn %}
-
+{% block content %}
+  <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="input-group">
+      {{ search_form.date }}
+      <span class="input-group-btn">
+        <button class="btn" id="search" type="submit">Search</button>
+      </span>
+    </p>
+  </form>
 {% endblock %}

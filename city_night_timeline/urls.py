@@ -17,9 +17,11 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from service.views import main_view
+from service.views import *
 
 urlpatterns = [
     url(r'^$', main_view, name='main'),
+    url(r'^search/$', search_view, name='search'),
+    url(r'^list/$', list_view, name='list'),
     url(r'^admin/', admin.site.urls),
 ]
