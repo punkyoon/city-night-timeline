@@ -24,9 +24,11 @@ def search_view(request):
         if form.is_valid():
             query = form.cleaned_data['date']
             result = Timeline.objects.filter(time__contains=query)
-            return render(request, 'list.html', {'result': result})
+            context = {
+                'search_form': form,
+                'result': result
+            }
+
+            return render(request, 'search.html', context)
 
     return render(request, 'search.html', {'search_form': form})
-
-def list_view(request):
-    return render(request, 'list.html', {})

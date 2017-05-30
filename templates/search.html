@@ -10,4 +10,9 @@
       </span>
     </p>
   </form>
+  <div>
+    {% for item in result %}
+      <h1>{{ item.message }}</h1>
+    {% endfor %}
+  </div>
 {% endblock %}
