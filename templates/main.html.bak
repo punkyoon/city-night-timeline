@@ -1,4 +1,4 @@
-{% load staticfiles compress %}
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,15 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>CITY NIGHT TIMELINE</title>
-
-    <script src="//fb.me/react-15.0.1.js"></script>
-    <script src="//fb.me/react-dom-15.0.1.js"></script>
   </head>
   <body>
-    <div id="container"></div>
-    {% compress js %}
-    <script src="{% static 'jsx/main.jsx' %}" type="text/jsx"></script>
-    {% endcompress %}
+    <div id="react-app"></div>
+    <div id="react-test"></div>
+    {% render_bundle 'main' %}
     <form class="form-horizontal" method="post" action="{% url 'main' %}" enctype="multipart/form-data">
       {% csrf_token %}
       <p class="input-group">

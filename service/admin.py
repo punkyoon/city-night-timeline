@@ -1,3 +1,11 @@
 from django.contrib import admin
+from service.models import Timeline
 
-# Register your models here.
+class TimelineAdmin(admin.ModelAdmin):
+    list_display = (
+        '_id',
+        'message',
+        'time'
+    )
+
+admin.site.register(Timeline, TimelineAdmin)
