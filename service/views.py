@@ -1,3 +1,4 @@
+import pytz
 import datetime
 
 from django.shortcuts import render
@@ -5,7 +6,6 @@ from django.shortcuts import render
 from service.models import Timeline
 from service.forms import MessageForm, SearchForm
 
-# view and uploa
 def main_view(request):
     form = MessageForm()
 
@@ -39,3 +39,19 @@ def search_view(request):
             return render(request, 'search.html', context)
 
     return render(request, 'search.html', {'search_form': form})
+
+def server_time_check(request):
+    tz = pytz.timezone('Asia/Seoul')
+    seoul = datetime.datetime.now()
+    seoul = seoul.replace(tzinfo=tz)
+
+    service_time = [
+        datetime.time(22, 0, 0, tz),
+        datetime.time(6, 0, 0, tz)
+    ]
+
+    print(seoul.time)
+    print(service_time[0])
+    print(service_time[1])
+
+    return False    #temporary comment
