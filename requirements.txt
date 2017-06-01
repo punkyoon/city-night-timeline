@@ -1,3 +1,2 @@
-dd
 Django
 django-webpack-loader
