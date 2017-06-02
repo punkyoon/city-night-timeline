@@ -42,16 +42,11 @@ def search_view(request):
 
 def server_time_check(request):
     tz = pytz.timezone('Asia/Seoul')
-    seoul = datetime.datetime.now()
-    seoul = seoul.replace(tzinfo=tz)
+    seoul = datetime.datetime.now(tz).time()
 
     service_time = [
-        datetime.time(22, 0, 0, tz),
-        datetime.time(6, 0, 0, tz)
+        datetime.time(22, 0, 0, tzinfo=tz),
+        datetime.time(5, 0, 0, tzinfo=tz)
     ]
 
-    print(seoul.time)
-    print(service_time[0])
-    print(service_time[1])
-
-    return False    #temporary comment
+    return False    # Temporary return value
