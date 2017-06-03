@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'service.middleware.TimeCheckMiddleware',
 ]
 
 ROOT_URLCONF = 'city_night_timeline.urls'
