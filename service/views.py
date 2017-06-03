@@ -16,9 +16,12 @@ def main_view(request):
             content = Timeline.objects.create(message=msg)
     
     result = Timeline.objects.filter(time__contains=datetime.date.today())
+    
+    service_time = server_time_check()
     context = {
         'msg_form': form,
-        'result': result
+        'result': result,
+        'service': service_time
     }
 
     return render(request, 'main.html', context)
@@ -40,7 +43,7 @@ def search_view(request):
 
     return render(request, 'search.html', {'search_form': form})
 
-def server_time_check(request):
+def server_time_check():
     tz = pytz.timezone('Asia/Seoul')
     seoul = datetime.datetime.now(tz).time()
 
@@ -49,7 +52,7 @@ def server_time_check(request):
         datetime.time(6, 0, 0, tzinfo=tz)
     ]
 
-    if seoul>service_time[0] || seoul<service_time[1]:
+    if seoul>service_time[0] or seoul<service_time[1]:
         return True
     else:
         return False

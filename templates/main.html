@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  {% if service %}
+    <h1>Service open</h1>
+  {% else %}
+    <h1>Service closed</h1>
+  {% endif %}
   <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
     {% csrf_token %}
     <p class="input-group">
