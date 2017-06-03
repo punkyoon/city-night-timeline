@@ -45,8 +45,11 @@ def server_time_check(request):
     seoul = datetime.datetime.now(tz).time()
 
     service_time = [
-        datetime.time(22, 0, 0, tzinfo=tz),
-        datetime.time(5, 0, 0, tzinfo=tz)
+        datetime.time(21, 0, 0, tzinfo=tz),
+        datetime.time(6, 0, 0, tzinfo=tz)
     ]
 
-    return False    # Temporary return value
+    if seoul>service_time[0] || seoul<service_time[1]:
+        return True
+    else:
+        return False
