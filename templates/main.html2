@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="input-group">
+      {{ msg_form.message }}
+      <span class="input-group-btn">
+        <button class="btn" id="post" type="submit">POST</button>
+      </span>
+    </p>
+  </form>
+  <div>
+    {% for item in result %}
+      <div>
+        <h1>{{ item.message }}</h1>
+        <p>{{ item.time|date:'Y-m-d H:i A' }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

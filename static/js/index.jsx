@@ -1,6 +1,8 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var App = require('./app')
+import 'semantic-ui-css/semantic.min.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Example from './Example';
 
-ReactDOM.render(<App/>, document.getElementById('react-app'))
-ReactDOM.render(<h1>hello google</h1>, document.getElementById('react-test'))
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Example />, rootElement);
+
