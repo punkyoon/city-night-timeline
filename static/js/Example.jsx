@@ -5,7 +5,7 @@ const Example = () => (
     <Container text>
         <Header as='h2'>Header</Header>
         <p>text</p>
-        <Button>button</Button>
+        <Button content='Click here' />
     </Container>
 )
 

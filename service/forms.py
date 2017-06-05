@@ -6,7 +6,7 @@ class MessageForm(forms.Form):
     message = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                'class': 'form-control',
+                #'class': 'form-control',
                 'placeholder': 'message',
             }
         )

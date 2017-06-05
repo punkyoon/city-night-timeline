@@ -1,26 +1,19 @@
-{% load render_bundle from webpack_loader %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-    <title>CITY NIGHT TIMELINE</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <div id="react-app"></div>
-    <div id="react-test"></div>
-    {% render_bundle 'main' %}
-    <form class="form-horizontal" method="post" action="{% url 'main' %}" enctype="multipart/form-data">
-      {% csrf_token %}
-      <p class="input-group">
-        {{ msg_form.keyword }}
-        <span class="input-group-btn">
-          <button class="btn btn-default" id="newmsg" type="submit">WRITE</button>
-        </span>
-      </p>
-    </form>
-  </body>
-</html>
+{% block content %}
+  <form class="ui form" method="post" action="#" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="field">
+      {{ msg_form.message }}
+        <button class="ui button" id="post" type="submit">POST</button>
+    </div>
+  </form>
+  <div>
+    {% for item in result %}
+      <div>
+        <h1>{{ item.message }}</h1>
+        <p>{{ item.time|date:'Y-m-d H:i A' }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
