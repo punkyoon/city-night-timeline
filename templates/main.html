@@ -3,9 +3,15 @@
 {% block content %}
   <form class="ui form" method="post" action="#" enctype="multipart/form-data">
     {% csrf_token %}
+    <div class="fields">
+      <div class="eight wide field">
+        <div class="ui input">
+          {{ msg_form.message }}
+        </div>
+      </div>
+    </div>
     <div class="field">
-      {{ msg_form.message }}
-        <button class="ui button" id="post" type="submit">POST</button>
+      <button class="ui button" id="post" type="submit">POST</button>
     </div>
   </form>
   <div>

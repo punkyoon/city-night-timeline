@@ -9,9 +9,15 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
   </head>
   <body>
-    <a href="{% url 'main' %}">MAIN</a>
-    <a href="{% url 'search' %}">SEARCH</a>
-    {% block content %}
-    {% endblock %}
+    <div>
+      <div class="ui pointing secondary menu">
+        <a class="active item" href="{% url 'main' %}">MAIN</a>
+        <a class="item" href="{% url 'search' %}">SEARCH</a>
+      </div>
+    </div>
+    <div class="ui center aligned segment">
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 </html>
