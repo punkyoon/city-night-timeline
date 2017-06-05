@@ -16,7 +16,7 @@ class SearchForm(forms.Form):
     date = forms.DateField(
         widget=forms.SelectDateWidget(
             attrs={
-                'class': 'form-control',
+                #'class': 'form-control',
             }
         )
     )

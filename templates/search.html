@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+  <form class="ui form" method="post" action="#" enctype="multipart/form-data">
     {% csrf_token %}
-    <p class="input-group">
-      {{ search_form.date }}
-      <span class="input-group-btn">
+    <div class="fields">
+      <div class="field">
+        <div class="ui input">
+          {{ search_form.date }}
+        </div>
+      </div>
+      <div class="field">
         <button class="ui button" id="search" type="submit">Search</button>
-      </span>
-    </p>
+      </div>
+    </div>
   </form>
   <div>
     {% for item in result %}
