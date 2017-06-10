@@ -164,3 +164,4 @@ typings/
 
 static/bundles/*
 webpack-stats.json
+package-lock.json
