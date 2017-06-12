@@ -13,6 +13,7 @@ def main_view(request):
         if form.is_valid():
             msg = form.cleaned_data['message']
             content = Timeline.objects.create(message=msg)
+            form = MessageForm()
     
     result = Timeline.objects.filter(time__contains=datetime.date.today())
     
