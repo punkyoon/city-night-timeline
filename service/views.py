@@ -40,3 +40,6 @@ def search_view(request):
             return render(request, 'search.html', context)
 
     return render(request, 'search.html', {'search_form': form})
+
+def help_view(request):
+    return render(request, 'help.html')
