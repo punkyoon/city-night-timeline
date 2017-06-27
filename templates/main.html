@@ -6,7 +6,7 @@
     <div class="fields">
       <div class="eight wide field">
         <div class="ui input">
-          {{ msg_form.message }}
+            <textarea name="message" default="" placeholder="message" required></textarea>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
   </form>
   <div>
     {% for item in result %}
-      <div>
+      <div class="ui raised very padded text container segment">
         <h1>{{ item.message }}</h1>
         <p>{{ item.time|date:'Y-m-d H:i A' }}</p>
       </div>
