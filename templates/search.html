@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
+{% block assets %}
+  {% load static %}
+  <script src="{% static 'js/calendar.min.js' %}"></script>
+  <link href="{% static 'css/calendar.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 
 {% block content %}
   <form class="ui form" method="post" action="#" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="fields">
       <div class="field">
-        <div class="ui input">
-          {{ search_form.date }}
+        <div class="ui input calendar" id="date">
+          <input type="text" name="date" placeholder="Date/Time">
         </div>
       </div>
       <div class="field">
@@ -16,10 +21,16 @@
   </form>
   <div>
     {% for item in result %}
-      <div>
+      <div class="ui raised very padded text container segment">
         <h1>{{ item.message }}</h1>
         <p>{{ item.time|date:'Y-m-d H:i A' }}</p>
       </div>
     {% endfor %}
+    <br/>
   </div>
+  <script>
+    $('#date').calendar({
+      type: 'date'
+    });
+  </script>
 {% endblock %}

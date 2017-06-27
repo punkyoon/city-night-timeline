@@ -15,9 +15,15 @@ def main_view(request):
     return render(request, 'main.html', {'result': result})
 
 def search_view(request):
-    form = SearchForm()
+    #form = SearchForm()
 
     if request.method == 'POST':
+        data = request.POST['date']
+        data = datetime.datetime.strptime(data, "%B %d, %Y").date()
+        result = Timeline.objects.filter(time__contains=data)
+        return render(request, 'search.html', {'result': result})
+        '''
+        print(request.POST)
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data['date']
@@ -28,8 +34,9 @@ def search_view(request):
             }
 
             return render(request, 'search.html', context)
-
-    return render(request, 'search.html', {'search_form': form})
+        '''
+    return render(request, 'search.html')
+    #return render(request, 'search.html', {'search_form': form})
 
 def help_view(request):
     return render(request, 'help.html')
