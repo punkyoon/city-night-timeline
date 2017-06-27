@@ -17,7 +17,7 @@ class TimeCheckMiddleware(object):
     def __call__(self, request):
         response = self.get_response(request)
 
-        if self.time_check():
+        if self.time_check() or request.path != '/':
             return response
         else:
             return render(request, 'down.html', {})
@@ -29,3 +29,5 @@ class TimeCheckMiddleware(object):
             return True
         else:
             return False
+
+        return False
