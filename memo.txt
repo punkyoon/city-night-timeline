@@ -1,5 +1,0 @@
-./node_modules/.bin/webpack static/js/index.jsx
-
-./node_modules/.bin/webpack --config webpack.config.js
-
-./node_modules/.bin/webpack --config webpack.config.js --watch
