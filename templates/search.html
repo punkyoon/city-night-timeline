@@ -6,19 +6,21 @@
 {% endblock %}
 
 {% block content %}
-  <form class="ui form" method="post" action="#" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="fields">
-      <div class="field">
-        <div class="ui input calendar" id="date">
-          <input type="text" name="date" placeholder="Date/Time">
+  <div class="ui form">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="inline fields ui grid container centered">
+        <div class="four wide field">
+          <div class="ui input calendar" id="date">
+            <input type="text" name="date" placeholder="Date" required>
+          </div>
+        </div>
+        <div class="field">
+          <button class="ui button" id="search" type="submit">Search</button>
         </div>
       </div>
-      <div class="field">
-        <button class="ui button" id="search" type="submit">Search</button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
   <div>
     {% for item in result %}
       <div class="ui raised very padded text container segment">
