@@ -21,7 +21,17 @@
       </div>
     </form>
   </div>
+  <br/>
   <div>
+    {% if result.count == 0 %}
+      <div class="inline ui grid container centered">
+        <br/>
+        <div class="ui negative message">
+          <div class="header">None!</div>
+          <p>Cannot find any messages..</p>
+        </div>
+      </div>
+    {% endif %}
     {% for item in result %}
       <div class="ui raised very padded text container segment">
         <h1>{{ item.message }}</h1>
@@ -34,5 +44,6 @@
     $('#date').calendar({
       type: 'date'
     });
+    $('#search').addClass('active');
   </script>
 {% endblock %}
