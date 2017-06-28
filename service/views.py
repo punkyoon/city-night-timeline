@@ -3,7 +3,6 @@ import datetime
 from django.shortcuts import render
 
 from service.models import Timeline
-from service.forms import SearchForm
 
 def main_view(request):
     if request.method == 'POST':
