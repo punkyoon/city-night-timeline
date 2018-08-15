@@ -1,8 +1,8 @@
 import pytz
 import datetime
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.http import JsonResponse
+
 
 class TimeCheckMiddleware(object):
     tz = pytz.timezone('Asia/Seoul')
@@ -20,14 +20,12 @@ class TimeCheckMiddleware(object):
         if self.time_check() or request.path != '/':
             return response
         else:
-            return render(request, 'down.html', {})
+            return JsonResponse({'info': 'not a service time'})
 
     def time_check(self):
         now = datetime.datetime.now(self.tz).time()
 
-        if now>self.service_time[0] or now<self.service_time[1]:
+        if now > self.service_time[0] and now < self.service_time[1]:
             return True
-        else:
-            return False
 
         return False

@@ -1,28 +1,47 @@
+import json
 import datetime
 
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from service.models import Timeline
 
-def main_view(request):
-    if request.method == 'POST':
-        msg = request.POST['message']
-        content = Timeline.objects.create(message=msg)
-    
-    result = Timeline.objects.filter(time__contains=datetime.date.today())
 
-    return render(request, 'main.html', {'result': result})
+@csrf_exempt
+def timeline_view(request):
+    result = []
+    if request.method == 'POST':
+        msg = json.loads(request.body.decode('utf-8'))['message']
+        Timeline.objects.create(message=msg)
+    
+    timelines = Timeline.objects.filter(time__contains=datetime.date.today())
+    #timelines = Timeline.objects.all()
+
+    for timeline in timelines:
+        result.append({
+            '_id': timeline._id,
+            'message': timeline.message,
+            'time': timeline.time
+        })
+
+    return JsonResponse({'timelines': result})
 
 def search_view(request):
-    if request.method == 'POST':
-        data = request.POST['date']
-        data = datetime.datetime.strptime(data, "%B %d, %Y").date()
+    result = []
+    if request.method == 'GET':
+        data = request.GET['date']
+        data = datetime.datetime.strptime(data, "%Y-%m-%d").date()
+        timelines = Timeline.objects.filter(time__contains=data)
 
-        result = Timeline.objects.filter(time__contains=data)
+    for timeline in timelines:
+        result.append({
+            '_id': timeline._id,
+            'message': timeline.message,
+            'time': timeline.time
+        })
 
-        return render(request, 'search.html', {'result': result})
+    return JsonResponse({'timelines': result})
 
-    return render(request, 'search.html')
 
-def help_view(request):
-    return render(request, 'help.html')
+def info_view(request):
+    return HttpResponse()
