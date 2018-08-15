@@ -1,5 +1,6 @@
+.vscode
 .DS_Store
-led / optimized / DLL files
+
 __pycache__/
 *.py[cod]
 *$py.class
