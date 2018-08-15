@@ -12,7 +12,7 @@
     export default {
         name: 'app',
         components: {
-            appHeader: Header,
+            'app-header': Header,
         },
         data() {
             return {
