@@ -25,7 +25,7 @@ class TimeCheckMiddleware(object):
     def time_check(self):
         now = datetime.datetime.now(self.tz).time()
 
-        if now > self.service_time[0] and now < self.service_time[1]:
+        if now > self.service_time[0] or now < self.service_time[1]:
             return True
 
         return False

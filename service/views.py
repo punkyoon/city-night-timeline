@@ -15,7 +15,6 @@ def timeline_view(request):
         Timeline.objects.create(message=msg)
     
     timelines = Timeline.objects.filter(time__contains=datetime.date.today())
-    #timelines = Timeline.objects.all()
 
     for timeline in timelines:
         result.append({

@@ -30,6 +30,9 @@
                 this.message = '';
                 // Update timeline feed
                 this.getTimeline();
+
+                // Count uploaded message today
+                this.$store.state.todayCount++;
             },
         }
     }

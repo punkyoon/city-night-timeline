@@ -8,6 +8,7 @@ import App from './App.vue';
 import Timeline from './components/Timeline.vue';
 import Search from './components/Search.vue';
 import Info from './components/Info.vue';
+import {store} from './store';
 
 
 Vue.use(Vuex)
@@ -29,6 +30,7 @@ const router = new VueRouter({
 
 let v = new Vue({
     el: '#app',
+    store: store,
     render: h => h(App),
     router: router
-}); //.$mount('#app');
+});

@@ -7,6 +7,8 @@
         <h2>Bug Report & Contribution</h2>
         <p>E-mail: punkkid001@gmail.com</p>
         <p>Github: <a href="https://github.com/punkyoon/city-night-timeline">city-night-timeline</a></p>
+
+        <p>Today you uploaded {{ this.$store.state.todayCount }} messages!</p>
     </div>
 </template>
 

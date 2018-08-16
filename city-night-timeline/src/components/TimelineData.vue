@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-if="timelines !== undefined && timelines !== null && timelines.length == 0">
-            <p>Cannot Find!</p>
+            <p style="text-align:center;">There's no messages!</p>
         </div>
-        <div v-else>
+        <div v-else-if="timelines !== undefined && timelines !== null && timelines.length > 0">
             <div class="panel" v-for="value in timelines" :key=value._id>
                 <div class="panel-body">
                     <p>{{ value.message }}</p>
